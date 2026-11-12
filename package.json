@@ -1,0 +1,23 @@
+{
+  "name": "briefpulse-tavily-research-agent",
+  "version": "1.0.0",
+  "description": "Autonomous AI Pre-Meeting Research Agent powered by Tavily Search & Extract, with Bootstrap 5 UI and Vercel serverless deployment.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "tavily",
+    "ai-agent",
+    "meeting-briefing",
+    "hackathon",
+    "vercel",
+    "bootstrap"
+  ],
+  "license": "MIT"
+}
+
