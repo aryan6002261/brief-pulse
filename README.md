@@ -46,10 +46,11 @@ flowchart LR
 
 ```text
 .
-├── index.html              # Main Bootstrap 5.3 UI (opens directly or served via Node/Vercel)
-├── assets/
-│   ├── css/styles.css      # Editorial styles, trace timeline, and @media print 1-page PDF layout
-│   └── js/app.js           # Client controller, sample briefings, Markdown export, safe DOM rendering
+├── public/
+│   ├── index.html          # Main Bootstrap 5.3 UI (opens directly or served via Node/Vercel)
+│   └── assets/
+│       ├── css/styles.css  # Editorial styles, trace timeline, and @media print 1-page PDF layout
+│       └── js/app.js       # Client controller, sample briefings, Markdown export, safe DOM rendering
 ├── api/
 │   ├── briefing.js         # Vercel Serverless Function: POST /api/briefing
 │   └── health.js           # Vercel Serverless Function: GET /api/health
@@ -94,7 +95,7 @@ node server.js
 ```
 Then open [http://localhost:3000](http://localhost:3000).
 
-> **Quick Static Preview:** You can also open `index.html` directly in your browser to explore the Bootstrap 5 UI, sample briefings, Print/PDF layout, and optional session-key test mode.
+> **Quick Static Preview:** You can also open `public/index.html` directly in your browser to explore the Bootstrap 5 UI, sample briefings, Print/PDF layout, and optional session-key test mode.
 
 ---
 
@@ -107,7 +108,7 @@ Then open [http://localhost:3000](http://localhost:3000).
 2. In your **Vercel Project Settings → Environment Variables**, add:
    - `TAVILY_API_KEY` = `tvly-...`
    - *(Optional)* `BIFROST_BASE_URL`, `BIFROST_API_KEY`, `BIFROST_MODEL`, `OPENAI_API_KEY`, or `GEMINI_API_KEY`
-3. Deploy! Vercel automatically serves `index.html` at `/` and deploys `api/briefing.js` and `api/health.js` as serverless functions.
+3. Deploy! Vercel automatically serves `public/index.html` at `/` and deploys `api/briefing.js` and `api/health.js` as serverless functions.
 
 ---
 

@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = __dirname;
+const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const PORT = Number(process.env.PORT) || 3000;
 
 function loadDotEnv(envPath) {
@@ -50,16 +51,16 @@ const MIME_TYPES = {
 
 function serveStaticFile(reqPath, res) {
   const safePath = reqPath === '/' ? '/index.html' : reqPath;
-  const resolved = path.resolve(ROOT_DIR, `.${safePath}`);
+  const resolved = path.resolve(PUBLIC_DIR, `.${safePath}`);
 
-  if (!resolved.startsWith(ROOT_DIR)) {
+  if (!resolved.startsWith(PUBLIC_DIR + path.sep) && resolved !== path.join(PUBLIC_DIR, 'index.html')) {
     res.statusCode = 403;
     res.end('Forbidden');
     return;
   }
 
-  // Only allow serving index.html and assets/*
-  const rel = path.relative(ROOT_DIR, resolved).replace(/\\/g, '/');
+  // Only allow serving index.html and assets/* inside public/
+  const rel = path.relative(PUBLIC_DIR, resolved).replace(/\\/g, '/');
   if (rel !== 'index.html' && !rel.startsWith('assets/')) {
     res.statusCode = 404;
     res.end('Not Found');
